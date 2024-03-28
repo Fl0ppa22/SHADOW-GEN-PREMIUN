@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHADOW GEN FREE</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #36393f;
+    color: #ffffff;
+    margin: 0;
+  }
+  
+  #contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .cuadro {
+    width: 300px;
+    height: 200px;
+    background-color: #2f3136;
+    border-radius: 8px;
+    padding: 10px;
+    overflow: auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    margin: 0 100px; /* Separación entre los cuadros */
+  }
+
+  header {
+    background-color: #202225;
+    padding: 10px;
+    text-align: center;
+  }
+
+  nav {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+
+  nav a:hover {
+    background-color: #4f545c;
+  }
+
+  #cuadro {
+    width: 300px;
+    height: 200px;
+    background-color: #2f3136;
+    border-radius: 8px;
+    padding: 10px;
+    overflow: auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  #boton-copiar {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  #boton-copiar button {
+    padding: 10px 20px;
+    background-color: #7289da;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  #boton-copiar button:hover {
+    background-color: #5f73bc;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>SHADOW GEN Premiun</h1>
+  <nav>
+    <a href="#">Inicio</a>
+    <a href="https://discord.gg/8hK3Xzv9rJ">Discord</a>
+    <a href="#">Menú</a>
+    <a href="#">Reglas</a>
+  </nav>
+</header>
+
+<div id="contenedor">
+  <div id="cuadro1" class="cuadro"></div>
+</div>
+
+<div id="boton-copiar">
+  <button onclick="copiarTexto()">Copiar Texto</button>
+</div>
+
+<script>
+  // Array de textos predefinidos
+  var textos = [
+    "codigos google play pais: estados unidos: 7M52JTUWH2FA0LDJ 6MJ66EPLJRUD84NR  13XXGVBJ4DZDJ1WJ",
+	"codigos google play pais: estados unidos: EUHA2RJ6CJCEWD63 0M4AD1TRDNS0NLCZ GJ57MRA14JL6F3LJ"
+  ];
+
+  // Función para seleccionar aleatoriamente un texto del array
+  function textoAleatorio() {
+    if (textos.length === 0 || (textos.length === 1 && textos[0] === "")) {
+      return "no hay mas codigos buscando codigos / regalos / otros espera esto puede tardar unos minutos";
+    } else {
+      var indice = Math.floor(Math.random() * textos.length);
+      return textos[indice];
+    }
+  }
+
+  // Función para actualizar el cuadro con texto aleatorio
+  function actualizarCuadro1() {
+    var cuadro = document.getElementById("cuadro1");
+    cuadro.innerText = textoAleatorio();
+  }
+
+  // Función para copiar el texto del primer cuadro al portapapeles
+  function copiarTexto() {
+    var cuadro1 = document.getElementById("cuadro1").innerText;
+
+    // Crear un elemento de texto temporal para copiar al portapapeles
+    var textoTemporal = document.createElement("textarea");
+    textoTemporal.value = cuadro1;
+    document.body.appendChild(textoTemporal);
+    textoTemporal.select();
+    document.execCommand("copy");
+    document.body.removeChild(textoTemporal);
+
+    alert("Texto copiado al portapapeles.");
+  }
+
+  // Llamar a la función para que se ejecute al cargar la página
+  actualizarCuadro1();
+
+  // Evento para manejar el clic derecho
+  document.addEventListener("contextmenu", function(event) {
+    event.preventDefault(); // Evitar el menú contextual por defecto
+    alert("Hola");
+  });
+
+  // Evento para manejar la combinación de teclas Ctrl + u
+  document.addEventListener("keydown", function(event) {
+    if (event.ctrlKey && event.key === "u") {
+      event.preventDefault(); // Evitar la acción por defecto de Ctrl + u (mostrar código fuente)
+    }
+  });
+</script>
+
+</body>
+</html>
